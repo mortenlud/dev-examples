@@ -23,43 +23,42 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.richfaces.examples</groupId>
-        <artifactId>richfaces-example-parent</artifactId>
-        <version>4.3.0-SNAPSHOT</version>
-        <relativePath>../parent/pom.xml</relativePath>
+        <groupId>org.richfaces</groupId>
+        <artifactId>richfaces-parent</artifactId>
+        <version>13-SNAPSHOT</version>
+        <relativePath>../../parent</relativePath>
     </parent>
 
+    <groupId>org.richfaces.examples</groupId>
     <artifactId>push-demo</artifactId>
+    <version>4.3.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>RichFaces Examples Push</name>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.richfaces</groupId>
+                <artifactId>richfaces-build-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
+
         <dependency>
-            <groupId>org.atmosphere</groupId>
-            <artifactId>atmosphere-runtime</artifactId>
+            <groupId>org.jboss.spec</groupId>
+            <artifactId>jboss-javaee-web-6.0</artifactId>
+            <type>pom</type>
+            <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.richfaces.core</groupId>
             <artifactId>richfaces-core-impl</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>el-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp.jstl</groupId>
-            <artifactId>jstl-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.richfaces.ui.core</groupId>
@@ -67,14 +66,10 @@
         </dependency>
 
         <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
+            <groupId>org.atmosphere</groupId>
+            <artifactId>atmosphere-runtime</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
@@ -85,9 +80,4 @@
         </plugins>
     </build>
 
-    <scm>
-        <connection>scm:git:git://github.com/richfaces/dev-examples.git</connection>
-        <developerConnection>scm:git:git@github.com:richfaces/dev-examples.git</developerConnection>
-        <url>https://github.com/richfaces/dev-examples</url>
-    </scm>
 </project>
